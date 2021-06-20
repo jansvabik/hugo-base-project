@@ -8,7 +8,7 @@ There are several scripts which make the development process faster and more com
 
 ### New component
 
-There is a `make component name=component-name` for adding new component. It automatically creates .scss and .html file in corresponding directories, which are:
+There is a `make component name=component-name` command for adding new component. It automatically creates .scss and .html file in corresponding directories, which are:
 
 * for `.scss` file -> `assets/sass/components/_component-name.scss`
 * for `.html` file -> `layouts/partials/components/component-name.html`
