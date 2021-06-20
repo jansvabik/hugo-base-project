@@ -1,0 +1,88 @@
+p a {
+    color: map-get($theme-colors, primary);
+    border-bottom: 1px solid map-get($theme-colors, primary);
+    text-decoration: none;
+}
+
+p a:hover {
+    border-bottom-color: transparent;
+}
+
+p {
+    line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Serif', Georgia, 'Times New Roman', Times, serif;
+}
+
+[class*="__content"], [class*="__text"] {
+    p {
+        font-size: $font-size-base * 1.25;
+        margin-bottom: $spacer;
+    }
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    ul, ol {
+        margin-left: $spacer * 3;
+    }
+    
+    li {
+        margin-bottom: map-get($spacers, 3);
+        position: relative;
+        list-style-type: none;
+    }
+    
+    li::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 18px;
+        left: -$spacer * 3;
+        height: 2px;
+        width: 30px;
+        background: map-get($theme-colors, primary);
+    }
+
+    code {
+        font-family: monospace;
+        background: #f3f3f3;
+        color: #000;
+    }
+
+    pre {
+        border-left: 0;
+        overflow-x: scroll;
+        background: #222;
+        font-family: monospace;
+        font-size: 1.2rem;
+        line-height: 1.3rem;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1.3rem;
+
+        code {
+            background: #222;
+            color: #fff;
+        }
+    }
+
+    img {
+        max-width: 100%;
+        border: 1px solid #eee;
+        border-radius: 8px;
+    }
+
+    li a {
+        color: black;
+        text-decoration: none;
+        border-bottom: 1px solid theme-color(black);
+    }
+
+    li a:hover {
+        border-bottom-color: transparent;
+    }
+}

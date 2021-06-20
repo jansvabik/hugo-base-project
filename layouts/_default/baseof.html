@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}" prefix="og: http://ogp.me/ns#">
+    <head>
+        {{ partial "head" . }}
+    </head>
+    <body class="js-loading">
+        {{ partial "header" . }}
+        <main class="o-main">
+            {{ block "main" . }}{{ end }}
+        </main>
+        {{ partial "footer" . }}
+        <script>
+            // enable css animation after the page is fully loaded
+            window.addEventListener('load', function () {
+                document.body.classList.remove('js-loading');
+            });
+
+            // allow main navigation showing and hiding
+            document.getElementById('menutglbtn').addEventListener('click', function () {
+                var nav = document.getElementById('nav');
+                var menuIsOpened = nav.classList.contains('o-nav--shown');
+                if (!menuIsOpened) {
+                    nav.classList.add('o-nav--shown');
+                } else {
+                    nav.classList.remove('o-nav--shown');
+                }
+            });
+        </script>
+    </body>
+</html>

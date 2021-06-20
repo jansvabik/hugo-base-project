@@ -1,0 +1,101 @@
+<!-- Google Analytics -->
+{{ if .Site.Params.googleAnalyticsId }}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Params.googleAnalyticsId }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ .Site.Params.googleAnalyticsId }}');
+    </script>
+{{ end }}
+
+<!-- encoding and browser config -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+{{ hugo.Generator }}
+
+<!-- SEO: basic -->
+<title>{{ .Params.seo.title }}</title>
+<meta name="description" content="{{ .Params.seo.description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="{{ .Params.seo.robots }}">
+
+<!-- SEO: open graph -->
+<meta property="og:title" content="{{ .Params.seo.title }}">
+<meta property="og:description" content="{{ .Params.seo.description }}">
+<meta property="og:locale" content="{{ .Site.Language.Params.locale }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ if eq .Type "blog" }}
+    <meta property="og:type" content="article">
+    <meta property="article:author" content="{{ .Params.author.url }}">
+    {{ range .Params.tags }}
+        <meta property="article:tag" content="{{ . }}">
+    {{ end }}
+    <meta property="article:section" content="{{ .Params.category }}">
+    {{ $publishDate := .PublishDate.UTC.Format "2006-01-02T15:04:05" }}
+    {{ $modifyDate := .Lastmod.UTC.Format "2006-01-02T15:04:05" }}
+    <meta property="article:published_time" content="{{ $publishDate }}+00:00">
+    <meta property="article:modified_time" content="{{ $modifyDate }}+00:00">
+    <meta property="og:updated_time" content="{{ $modifyDate }}+00:00">
+{{ else }}
+    <meta property="og:type" content="website">
+{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ if .Params.seo.image }}
+    <meta property="og:image" content="{{ .Site.Params.cloudinaryPrefix }}{{ .Params.seo.image }}">
+{{ end }}
+
+<!-- SEO: twitter card -->
+{{ if eq .Type "blog" }}
+    <meta name="twitter:card" content="summary_large_image">
+{{ else }}
+    <meta name="twitter:card" content="summary">
+{{ end }}
+<meta name="twitter:title" content="{{ .Params.seo.title }}">
+<meta name="twitter:description" content="{{ .Params.seo.description }}">
+<meta name="twitter:site" content="@project-name">
+{{ if .Params.seo.image }}
+    <meta name="twitter:image" content="{{ .Site.Params.cloudinaryPrefix }}{{ .Params.seo.image }}">
+{{ end }}
+
+<!-- SEO: translations -->
+{{ if .IsTranslated }}
+    {{ range .Translations }}
+        <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+    {{ end }}
+{{ end }}
+
+<!-- preconnects -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://res.cloudinary.com">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- website stylesheets -->
+{{ $style := resources.Get "sass/main.scss" | toCSS (dict "targetPath" "css/style.css") }}
+{{ if eq hugo.Environment "production" }}
+    {{ $style = $style | postCSS | fingerprint }}
+{{ end }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">
+
+<!-- favicons -->
+<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+<link rel="manifest" href="/favicon/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">

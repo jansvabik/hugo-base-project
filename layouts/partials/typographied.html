@@ -1,0 +1,7 @@
+{{ $content := . }}
+{{ $content = replaceRE "(>|\\(|\\[|\\{)?(A|I|O|U|K|S|V|Z)(</[a-z0-9]>)? " "$1$2$3&#160;" $content }}
+{{ $content = replaceRE "( |&#160;)(\\(|\\[|\\{)?(A|I|O|U|K|S|V|Z|a|i|o|u|k|s|v|z)(</[a-z0-9]>)? " "$1$2$3$4&#160;" $content }}
+{{ $content = replaceRE "(>|\\(|\\[|\\{)?(\\d\\.?) " "$1$2&#160;" $content }}
+{{ $content = replaceRE "( |>|\\(|\\[|\\{)([A-Z]\\.) " "$1$2&#160;" $content }}
+{{ $content = replaceRE "<h([0-9])&#160;" "<h$1 " $content }}
+{{ return ($content | safeHTML) }}

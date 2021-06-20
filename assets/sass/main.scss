@@ -1,0 +1,30 @@
+@import "./variables";
+
+@import "./functions/str-replace";
+@import "./functions/theme-color";
+
+@import "./mixins/breakpoints";
+@import "mixins/component-spacing";
+@import "mixins/component-heading";
+
+// disable css animations, js will enable them after the page load
+.js-loading *,
+.js-loading *:before,
+.js-loading *:after {
+    animation-play-state: paused !important;
+}
+
+@import "./base/reset";
+@import "./base/typography";
+
+@import "./layouts/grid";
+@import "./layouts/container";
+@import "./layouts/header";
+@import "./layouts/nav";
+@import "./layouts/footer";
+
+// auto-add components
+// do not delete previous comment, used for scripts/component-add.sh
+
+@import "./utils/icon";
+@import "./utils/helpers";

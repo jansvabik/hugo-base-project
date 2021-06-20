@@ -1,0 +1,50 @@
+.u-icon {
+    display: inline-block;
+    position: relative;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.u-icon--centered {
+    margin: 0 auto;
+}
+
+.u-icon--lg, .u-icon--lg::before {
+    width: 3em;
+    height: 3em;
+}
+
+.u-icon--md, .u-icon--md::before {
+    width: 2em;
+    height: 2em;
+}
+
+.u-icon--sm, .u-icon--sm::before {
+    width: 1.25em;
+    height: 1.25em;
+}
+
+.u-icon--center::before {
+    transform: translateX(-50%);
+    left: 50%;
+    margin: 0 auto;
+}
+
+@each $key, $value in $icons {
+    @each $color, $colorValue in $theme-colors {
+        .u-icon--#{$key}-#{$color} {
+            $image: str-replace($value, 'fill="%23000000"', 'fill="' + str-replace(inspect($colorValue), '#', '%23' + '') + '"');
+            background-image: url($image);
+        }
+
+        ._u-icon--before-#{$key}-#{$color}::before {
+            $image: str-replace($value, 'fill="%23000000"', 'fill="' + str-replace(inspect($colorValue), '#', '%23' + '') + '"');
+            background-image: url($image);
+        }
+
+        ._-u-icon--hover-#{$key}-#{$color}:hover .u-icon {
+            $image: str-replace($value, 'fill="%23000000"', 'fill="' + str-replace(inspect($colorValue), '#', '%23' + '') + '"');
+            background-image: url($image);
+        }
+    }
+}

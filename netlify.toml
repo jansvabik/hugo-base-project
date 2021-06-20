@@ -1,0 +1,44 @@
+[build]
+publish = "public"
+command = "npm run build"
+
+[context.production.environment]
+HUGO_VERSION = "0.74.2"
+HUGO_ENV = "production"
+HUGO_ENABLEGITINFO = "true"
+
+[[headers]]
+    for = "/*"
+    [headers.values]
+        X-Frame-Options = "deny"
+        X-XSS-Protection = "1; mode=block"
+        X-Content-Type-Options = "nosniff"
+        Referrer-Policy = "no-referrer"
+        Strict-Transport-Security = '''
+            max-age=31536000;
+            includeSubDomains
+        '''
+        #Content-Security-Policy = '''
+        #    default-src 'self';
+        #    style-src 'self' 'unsafe-inline';
+        #    img-src 'self'
+        #'''
+        # Permissions-Policy = '''
+        #     accelerometer=(none),
+        #     ambient-light-sensor=(none),
+        #     autoplay=(none),
+        #     camera=(none),
+        #     encrypted-media=(none),
+        #     fullscreen=(none),
+        #     geolocation=(none),
+        #     gyroscope=(none),
+        #     magnetometer=(none),
+        #     microphone=(none),
+        #     midi=(none),
+        #     payment=(none),
+        #     picture-in-picture=(none),
+        #     speaker=(none),
+        #     usb=(none),
+        #     vibrate=(none),
+        #     vr=(none)
+        # '''

@@ -1,0 +1,13 @@
+.o-container {
+    margin: 0 auto;
+    padding: 0 map-get($spacers, 3);
+    max-width: 100%;
+
+    @each $breakpointName, $_ in $grid-breakpoints {
+        @if ($breakpointName != "xs") {
+            @include media-breakpoint-up($breakpointName) {
+                max-width: map-get($container-max-widths, $breakpointName);
+            }
+        }
+    }
+}

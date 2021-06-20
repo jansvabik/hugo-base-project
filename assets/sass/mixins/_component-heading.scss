@@ -1,0 +1,8 @@
+@mixin component-heading {
+    font-size: $h2-font-size;
+    padding-bottom: $spacer;
+
+    @include media-breakpoint-up(md) {
+        
+    }
+}

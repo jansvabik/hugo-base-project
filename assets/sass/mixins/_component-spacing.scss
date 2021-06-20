@@ -1,0 +1,9 @@
+@mixin component-spacing {
+    padding-top: map-get($spacers, 4);
+    padding-bottom: map-get($spacers, 4);
+
+    @include media-breakpoint-up(md) {
+        padding-top: map-get($spacers, 5);
+        padding-bottom: map-get($spacers, 5);
+    }
+}

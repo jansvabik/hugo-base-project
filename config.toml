@@ -1,0 +1,41 @@
+# basic site settings
+title = "project-name"
+baseURL = "https://www.project-name.com/"
+
+# language settings
+languageCode = "en-us"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+# disabling taxonomy generator
+disableKinds = ["taxonomy", "term"]
+
+# data settings
+enableRobotsTXT = true
+metaDataFormat = "yaml"
+enableGitInfo = true
+rssLimit = 10
+summarylength = 15
+paginate = 6
+
+# sitemap output
+[sitemap]
+filename = "sitemap.xml"
+
+# custom params
+[params]
+cloudinaryPrefix = "https://res.cloudinary.com/project-name/image/upload"
+googleAnalyticsId = ""
+
+[languages.cs]
+    contentDir = "content/cs"
+    languageName = "Čeština"
+    weight = 1
+    [languages.cs.params]
+        locale = "cs_CZ"
+[languages.en]
+    contentDir = "content/en"
+    languageName = "English"
+    weight = 2
+    [languages.en.params]
+        locale = "en_US"

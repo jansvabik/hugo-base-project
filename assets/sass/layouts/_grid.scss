@@ -1,0 +1,27 @@
+.o-grid {
+    margin: 0 (-$spacer);
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.o-grid--center {
+    justify-content: center;
+}
+
+.o-grid__col {
+    padding: 0 map-get($spacers, 3);
+    width: 100%;
+}
+
+@each $breakpointName, $_ in $grid-breakpoints {
+    @each $col, $val in $grid-columns-percentages {
+        .o-grid__col.o-grid__col--#{$breakpointName}-#{$col} {
+            @include media-breakpoint-up($breakpointName) {
+                max-width: $val;
+                flex-basis: $val;
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+buttonContentColors:
+  primary: white
+  primary-outline: primary
+  primary-pastel: primary-darker
+  secondary: white
+  secondary-outline: secondary
+  gray: black
+  gray-light: black
+  black: white
+  white: black
+  link: primary
+buttonContentColorsHover:
+  primary: white
+  primary-outline: white
+  primary-pastel: white
+  secondary: white
+  secondary-outline: white
+  gray: black
+  gray-light: black
+  black: white
+  white: black
+  link: primary-darker
