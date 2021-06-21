@@ -17,6 +17,7 @@ htmlfile="layouts/partials/components/$name.html"
 # test the component name
 if [ -z "$name" -a "$name" != " " ]; then
     echo "U must gimme the component name. Usage: make component name=cmpt-name"
+    exit
 fi
 
 # test that the name is still unused (sass)
