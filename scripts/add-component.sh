@@ -45,7 +45,7 @@ echo ".c-$name {
 " > $sassfile
 
 # include the sass component file to the main.scss file
-sed -i '' 's/\/\/ auto-add components/@import ".\/components\/_'"$name"'.scss";\n\/\/ auto-add components/g' "assets/sass/main.scss"
+sed -i '' 's/\/\/ auto-add components/@import ".\/components\/'"$name"'.scss";\n\/\/ auto-add components/g' "assets/sass/main.scss"
 
 # create html component file
 echo "<div class=\"c-$name\">
