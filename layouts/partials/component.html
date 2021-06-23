@@ -1,5 +1,14 @@
 {{ $site := .site }}
 {{ $page := .ctx }}
 {{ range .ctx.Params.content }}
+    <!-- generate id for the section -->
+    {{ $id := delimit (shuffle (split (md5 $site.Title) "")) "" }}
+    {{ if .id }}
+        {{ $id = .id }}
+    {{ else if .heading }}
+        {{ $id = urlize .heading }}
+    {{ end }}
+
+    <!-- include the partial -->
     {{ partial (print "components/" .type) (dict "ctx" . "page" $page "site" $site) }}
 {{ end }}

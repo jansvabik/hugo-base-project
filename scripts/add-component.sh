@@ -49,7 +49,7 @@ echo ".c-$name {
 sed -i '' 's/\/\/ auto-add components/@import ".\/components\/'"$name"'.scss";\n\/\/ auto-add components/g' "assets/sass/main.scss"
 
 # create html component file
-echo "<div class=\"c-$name\">
+echo "<div id=\"{{ .id }}\" class=\"c-$name\">
     <div class=\"o-container\">
         <h2 class=\"c-${name}__heading\"></h2>
     </div>
