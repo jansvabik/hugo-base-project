@@ -16,6 +16,7 @@ There is a lot of ready-to-use features. You'll rather want to remove those that
 * `.browserlistrc` with some basic settings
 * pre-configured postcss (autoprefixer, minifier, purgecss)
 * `netlify.toml` file for cases when deployed on Netlify
+* ready for use with Forestry blocks (see `layouts/_default/{home,list,single}.html` and `layouts/partials/component.html`)
 
 ## Scripts
 
