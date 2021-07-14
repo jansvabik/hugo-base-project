@@ -1,6 +1,8 @@
 # Hugo base project
 
-This repository contains a sample [Hugo](https://gohugo.io/) project. It can be forked, cloned or copied for starting new project with this technology. However, there are more technologies and processes implemented for minimizing human actions during starting new project.
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/jansvabik/hugo-base-project)
+
+This repository contains a [Hugo](https://gohugo.io/) project template. It can be forked, cloned, or copied for starting new project with this technology. However, there are more technologies and processes implemented for minimizing human actions during starting new project.
 
 ## What's in-the-box
 
